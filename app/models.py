@@ -39,3 +39,17 @@ class User(UserMixin,db.Model):
     def __repr__(self):
         return f'User {self.username}'
 
+class Email(db.Model):
+    __tablename__='emails'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String())
+    email_data = db.Column(db.String(255))
+
+    def save_email(self):
+        db.session.add(self)
+        db.session.commit()
+    
+    @classmethod
+    def send_single_email(cls,id):
+        email = Email.query.filter_by(id=id).first()
+        return email

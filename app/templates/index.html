@@ -1,4 +1,5 @@
 {% extends 'base.html'%}
+{% import 'macros.html' as macro %}
 
 {% block styles%}
 {{ super() }}
@@ -6,9 +7,45 @@
 {% endblock %}
 
 {% block content %}
-<div class="container"><p>Hello World</p></div>
+<div class="container"><p>Form iko</p></div>
 
 
-
+<footer>
+    <div class="container-fluid text-center subscribe" id="subscribe-form">
+        <h2>Be the FIRST to know !</h2>
+        <h4>Enter your email to get the latest articles</h4>
+        <form action="" method="POST">
+            <div class="row">
+                <div class="col-md-12">
+                    {{subscribe_form.hidden_tag()}}
+                    {{subscribe_form.email}}
+                    <br>
+                    {{subscribe_form.name}}
+                    <br>
+                    {{subscribe_form.subscribe}}
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="container-fluid social text-center">
+        <ul class="list-inline">
+            <li class="list-inline-item">
+                <a href="#">
+                    <i class="fa fa-facebook fa-2x"></i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a href="#">
+                    <i class="fa fa-twitter fa-2x"></i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a href="#">
+                    <i class="fa fa-pinterest fa-2x"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</footer>
 
 {% endblock%}

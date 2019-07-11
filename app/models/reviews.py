@@ -19,7 +19,11 @@ def get_reviews(cls,id):
             return responce
 
 
-def save_review(self):
+def save_reviews(self):
     Review.all_reviews.append(self) 
 
+
+@classmethod
+def clear_reviews(cls):
+    Review.all_reviews.clear()
  
